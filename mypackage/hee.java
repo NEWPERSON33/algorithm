@@ -127,7 +127,7 @@ public class hee {
         while(begin < end - 1){
             int mid = begin + ((end - begin)>>1) ;
             if(arr[mid] == arr[begin] && arr[mid] == arr[end]){
-                //{1 , 0 , 1 , 1 }
+                //{1 , 1 , 0 , 1 }
             }
             else if(arr[mid] >= arr[begin]){
                 begin = mid ;
