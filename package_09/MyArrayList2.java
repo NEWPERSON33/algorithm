@@ -1,6 +1,6 @@
 package package_09;
 
-public class MyArrayList2 implements MyList{
+public class MyArrayList2 implements MyList{//单链表实现
 
     private ListNode head  = null;
     private ListNode rear = null;
