@@ -21,12 +21,14 @@ public class MyBinarySearchTree<K,V> implements IBinarySearchTree<K,V> {
         test.insert(-2,null);
         BSTNode<Integer , String> node = test.insert(-1,null);
         //node.key = 300 ;
-        test.Check(test.GetRoot());
-        System.out.println(test.flag);
+        //test.Check(test.GetRoot());
+        //System.out.println(test.flag);
         //test.reverse(test.root);
 //        Integer [] arr = {1,2,3,4,5,6,7} ;
 //        BSTNode<Integer , String> node = test.CreatMinHeight(arr , 0 , arr.length - 1);
 //        test.SetRoot(node);
+        test.inorder_recursive();
+        System.out.println("----------------------");
         test.inorder(test.GetRoot(), new Consumer<BSTNode<Integer,String>>() {
             @Override
             public void accept(BSTNode<Integer , String> obj) {
@@ -133,6 +135,27 @@ public class MyBinarySearchTree<K,V> implements IBinarySearchTree<K,V> {
             inorder(p.left , con);
             con.accept(p);
             inorder(p.right , con);
+        }
+    }
+
+
+    public Stack<BSTNode<K,V>> stack = new Stack<>() ;
+
+    /**
+     * 中序遍历的非递归形式的示例解法
+     */
+    public void inorder_recursive(){
+        BSTNode<K,V> cur = root ;
+        while (cur != null || stack.size() != 0){
+            while (cur!= null){
+                stack.add(cur) ;
+                cur = cur.left ;
+            }
+            BSTNode<K,V>node = stack.pop() ;
+            System.out.println(node);
+            if(node.right != null){
+                cur = node.right ;
+            }
         }
     }
 
